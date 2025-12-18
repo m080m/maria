@@ -28,13 +28,33 @@ You need to put your code into a GitHub repository.
     git push -u origin main
     ```
 
-### Step 2: Deploy on Vercel
-1.  Go to [Vercel Dashboard](https://vercel.com/dashboard).
-2.  Click **"Add New..."** -> **"Project"**.
-3.  You will see your list of GitHub repositories. Find `learnfast-app` and click **Import**.
-4.  In the configuration screen, you don't need to change anything for a simple HTML/JS site.
-5.  Click **Deploy**.
-6.  Wait a few seconds, and you will get a live URL (e.g., `learnfast-app.vercel.app`)!
+### Step 2: Deploy on Vercel (via Terminal)
+
+**Crucial Step**: You must be inside the `self-learning-app` folder.
+
+1.  Enter the folder:
+    ```bash
+    cd self-learning-app
+    ```
+2.  Start deployment:
+    ```bash
+    npx vercel
+    ```
+    *   Set up and deploy? **Yes**
+    *   Link to existing project? **No**
+    *   Project name? **self-learning-app** (or leave default)
+    *   Directory? **./** (Keep default)
+
+3.  **Add Secrets**:
+    ```bash
+    npx vercel env add GEMINI_API_KEY production
+    ```
+    *(Paste your key: `AIzaSyDMMqNGnGtY9OwHA261DVbopjb5lP7A3Lc`)*
+
+4.  **Final Deploy**:
+    ```bash
+    npx vercel --prod
+    ```
 
 ### Step 4: Configure Secrets (Environment Variables)
 Because we moved the API Key out of the code for security, you must tell Vercel what it is.
