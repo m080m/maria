@@ -1,5 +1,4 @@
-const GEMINI_API_KEY = 'AIzaSyDMMqNGnGtY9OwHA261DVbopjb5lP7A3Lc';
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${GEMINI_API_KEY}`;
+// API Configuration moved to Backend (api/generate.js)
 
 // Translations
 const TRANSLATIONS = {
@@ -120,17 +119,26 @@ async function fetchAIResources(topic) {
     Do not include markdown formatting like \`\`\`json. Just the raw JSON array.
     `;
 
-    const response = await fetch(API_URL, {
+    // Call our own Vercel API (proxy) instead of Google directly
+    const response = await fetch('/api/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            contents: [{ parts: [{ text: prompt }] }]
-        })
+        body: JSON.stringify({ prompt: prompt })
     });
 
-    const data = await response.json();
-    const text = data.candidates[0].content.parts[0].text;
+    if (!response.ok) {
+        throw new Error(`API Request failed: ${response.status}`);
+    }
 
+    const data = await response.json();
+
+    // Check if the proxy returned an error
+    if (data.error) {
+        throw new Error(data.error);
+    }
+
+    // The backend returns the raw Gemini response structure
+    const text = data.candidates[0].content.parts[0].text;
     const cleanJson = text.replace(/```json/g, '').replace(/```/g, '').trim();
     return JSON.parse(cleanJson);
 }

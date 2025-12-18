@@ -36,6 +36,17 @@ You need to put your code into a GitHub repository.
 5.  Click **Deploy**.
 6.  Wait a few seconds, and you will get a live URL (e.g., `learnfast-app.vercel.app`)!
 
+### Step 4: Configure Secrets (Environment Variables)
+Because we moved the API Key out of the code for security, you must tell Vercel what it is.
+
+1.  Go to your Project Settings on Vercel.
+2.  Click **"Environment Variables"** (left sidebar).
+3.  Add a new variable:
+    *   **Key**: `GEMINI_API_KEY`
+    *   **Value**: `AIzaSyDMMqNGnGtY9OwHA261DVbopjb5lP7A3Lc` (Your key from `apikey.txt`)
+4.  Click **Save**.
+5.  Go to the **Deployments** tab and Click **Redeploy** (or just push a small change to GitHub) for it to take effect.
+
 ---
 
 ## 🇦🇲 Հայերեն Հրահանգներ
@@ -54,23 +65,27 @@ You need to put your code into a GitHub repository.
     git commit -m "Initial commit"
     ```
 3.  Գնացեք GitHub.com, սեղմեք **+** նշանը և ընտրեք **New repository** (Նոր ռեպոզիտորիա):
-4.  Անուն դրեք (օրինակ՝ `learnfast-app`) և ստեղծեք այն (Create):
+4.  Անուն դրեք (օրինակ՝ `self-learning-app`) և ստեղծեք այն (Create): **Ընտրեք Private**:
 5.  Բացված էջում գտեք "…or push an existing repository from the command line" բաժինը: Պատճենեք այդ տողերը և run արեք ձեր տերմինալում: Դրանք մոտավորապես այս տեսքն ունեն.
     ```bash
-    git remote add origin https://github.com/ՁԵՐ_ԱՆՈՒՆԸ/learnfast-app.git
+    git remote add origin https://github.com/ՁԵՐ_ԱՆՈՒՆԸ/self-learning-app.git
     git push -u origin main
     ```
 
 ### Քայլ 2. Տեղադրել Vercel-ում
 1.  Մտեք [Vercel Dashboard](https://vercel.com/dashboard):
 2.  Սեղմեք **"Add New..."** -> **"Project"**:
-3.  Կտեսնեք ձեր GitHub-ի ռեպոզիտորիաները: Գտեք `learnfast-app`-ը և սեղմեք **Import**:
+3.  Կտեսնեք ձեր GitHub-ի ռեպոզիտորիաները: Գտեք `self-learning-app`-ը և սեղմեք **Import**:
 4.  Կարգավորումների էջում ոչինչ փոխել պետք չէ:
 5.  Սեղմեք **Deploy**:
-6.  Սպասեք մի քանի վայրկյան, և կստանաք ձեր կայքի հղումը (օրինակ՝ `learnfast-app.vercel.app`):
 
----
+### Քայլ 3. Գաղտնի բանալին (Secrets)
+Քանի որ մենք հանեցինք API Key-ը կոդի միջից, պետք է Vercel-ին առանձին ասել դրա մասին:
 
-> **Important Note / Կարևոր նշում**
-> Your API Key is currently inside `script.js`. On a public website, tech-savvy users can see it. For a serious project, use a backend proxy. For this demo, it works fine!
-> Ձեր API Key-ը գտնվում է `script.js` ֆայլի մեջ: Հանրային կայքում այն տեսանելի է լինելու: Իրական պրոյեկտների համար պետք է օգտագործել backend, բայց այս օրինակի համար խնդիր չէ:
+1.  Գնացեք ձեր պրոյեկտի **Settings** Vercel-ում:
+2.  Ձախ կողմից ընտրեք **"Environment Variables"**:
+3.  Ավելացրեք նոր տվյալ.
+    *   **Key**: `GEMINI_API_KEY`
+    *   **Value**: `AIzaSyDMMqNGnGtY9OwHA261DVbopjb5lP7A3Lc` (Ձեր բանալին)
+4.  Սեղմեք **Save**:
+5.  Գնացեք **Deployments** բաժին և արեք **Redeploy** (կամ ուղղակի նոր փոփոխություն ուղարկեք GitHub), որպեսզի այն աշխատի:
