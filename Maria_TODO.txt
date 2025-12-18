@@ -1,0 +1,4 @@
+Maria TODOs:
+
+1. Play around with nano banana pro and nature. Take existing nature imagees and see what you can make out of it.
+2. Build some interface/website/gallery to help people experiment and view and play around with the model. With a focus on nature.
