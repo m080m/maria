@@ -1,11 +1,16 @@
 :root {
-    --bg-color: #0f0c29;
-    --primary-color: #302b63;
-    --secondary-color: #24243e;
-    --accent-color: #00d2ff;
-    --accent-glow: rgba(0, 210, 255, 0.6);
+    --bg-color: #000000;
+    /* Pure Black */
+    --primary-color: #0f0f0f;
+    /* Dark Gray */
+    --secondary-color: #1a1a1a;
+    --accent-color: #ffffff;
+    /* White Stars */
+    --accent-glow: rgba(255, 255, 255, 0.5);
+    /* White Glow */
     --text-color: #ffffff;
-    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-bg: rgba(0, 0, 0, 0.4);
+    /* Neutral Black Glass */
     --glass-border: rgba(255, 255, 255, 0.1);
     --font-main: 'Outfit', sans-serif;
 }
@@ -17,7 +22,10 @@
 }
 
 body {
-    background: linear-gradient(135deg, var(--bg-color), var(--primary-color), var(--secondary-color));
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://cdn.cosmos.so/285ad016-3060-4b27-a34a-c8e920c1c05b?format=jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     font-family: var(--font-main);
     color: var(--text-color);
     min-height: 100vh;
@@ -27,50 +35,53 @@ body {
     position: relative;
 }
 
-/* Background Animations */
+/* Background Animations (Hidden as requested) */
 .background-globes {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
+    display: none;
 }
 
 .globe {
     position: absolute;
     border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.6;
-    animation: float 10s infinite ease-in-out alternate;
+    filter: blur(60px);
+    opacity: 0.5;
+    animation: float 15s infinite ease-in-out alternate;
 }
 
+/* Soft Sunray */
 .globe-1 {
-    width: 300px;
-    height: 300px;
-    background: #ff00cc;
-    top: 10%;
-    left: 20%;
-    animation-delay: 0s;
-}
-
-.globe-2 {
     width: 400px;
     height: 400px;
-    background: #333399;
-    bottom: 20%;
-    right: 10%;
-    animation-delay: -5s;
+    background: #ffd700;
+    /* Gold */
+    top: -10%;
+    left: 10%;
+    animation-delay: 0s;
+    opacity: 0.2;
 }
 
+/* Deep Forest Shadow/Mist */
+.globe-2 {
+    width: 500px;
+    height: 500px;
+    background: #004d26;
+    /* Dark Green */
+    bottom: 10%;
+    right: 5%;
+    animation-delay: -5s;
+    opacity: 0.4;
+}
+
+/* Firefly Glow */
 .globe-3 {
-    width: 250px;
-    height: 250px;
-    background: #00d2ff;
-    top: 40%;
-    left: 60%;
+    width: 150px;
+    height: 150px;
+    background: #ccff00;
+    /* Lime/Firefly */
+    top: 50%;
+    left: 70%;
     animation-delay: -2s;
+    filter: blur(40px);
 }
 
 @keyframes float {
@@ -83,33 +94,119 @@ body {
     }
 }
 
-/* Container */
+/* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 1rem 0;
+}
+
+.nav-content {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    border-radius: 25px;
+}
+
+.nav-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: var(--font-main);
+    transition: all 0.3s;
+    opacity: 0.7;
+}
+
+.nav-btn:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-btn.active {
+    opacity: 1;
+    background: var(--accent-color);
+    color: #000;
+    font-weight: 600;
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* Updated Lang Switcher for Navbar */
+.lang-switcher {
+    display: flex;
+    gap: 10px;
+}
+
+/* Container Adjustments */
 .container {
     width: 90%;
     max-width: 1200px;
-    padding: 2rem;
+    padding: 1rem 0;
+    /* Reduced padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    /* Reduced gap */
+    z-index: 1;
+    margin-top: 0;
+    /* Removed margin to connect with navbar */
+}
+
+/* View Sections */
+.view-section {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 3rem;
-    z-index: 1;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Hero Section */
 .hero-section {
     text-align: center;
-    margin-top: 5vh;
+    /* margin-top: 5vh; Removed large top margin */
     animation: fadeInDown 1s ease-out;
     position: relative;
     width: 100%;
-}
-
-.lang-switcher {
-    position: absolute;
-    top: -50px;
-    right: 0;
-    display: flex;
-    gap: 10px;
 }
 
 .lang-btn {
@@ -149,6 +246,40 @@ body {
 .tagline {
     font-size: 1.2rem;
     opacity: 0.8;
+}
+
+/* Filter Buttons */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: var(--accent-color);
+    color: #000;
+    font-weight: 700;
+    box-shadow: 0 0 10px var(--accent-glow);
+    border-color: var(--accent-color);
 }
 
 /* Glass Card Form */
@@ -297,15 +428,49 @@ select:focus {
     transition: transform 0.3s ease, background 0.3s;
     animation: popIn 0.5s ease backwards;
     cursor: pointer;
+    /* Default cursor pointer */
     text-decoration: none;
     color: white;
     display: block;
+}
+
+.result-card.video-card {
+    cursor: default;
+    /* Don't show pointer for the whole card if it's a video */
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    /* 16:9 Aspect Ratio */
+    height: 0;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
 .result-card:hover {
     transform: scale(1.03);
     background: rgba(255, 255, 255, 0.1);
     border-color: var(--accent-color);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
 }
 
 .card-tag {
@@ -315,8 +480,78 @@ select:focus {
     padding: 4px 12px;
     border-radius: 20px;
     font-size: 0.8rem;
-    margin-bottom: 1rem;
     font-weight: 600;
+}
+
+.site-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+}
+
+.site-badge i {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    /* Default fallback */
+    color: white;
+    /* Icon symbol always white */
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+    margin-right: 0;
+    /* Reset margin if inherited */
+}
+
+.site-badge:hover i {
+    transform: scale(1.1);
+}
+
+/* Site Specific Backgrounds */
+.site-youtube i {
+    background: #ff0000;
+}
+
+.site-wiki i {
+    background: #e0e0e0;
+    color: #333;
+    /* Wiki icon needs dark text on light bg */
+}
+
+.site-google i {
+    background: #4285f4;
+}
+
+.site-github i {
+    background: #333;
+}
+
+.site-stackoverflow i {
+    background: #f48024;
+}
+
+.site-medium i {
+    background: #00ab6c;
+}
+
+.site-course i {
+    background: #1DB954;
+}
+
+.site-docs i {
+    background: #61dafb;
+    color: #000;
+}
+
+/* Dark text for cyan bg */
+.site-default i {
+    background: var(--accent-color);
 }
 
 .card-title {

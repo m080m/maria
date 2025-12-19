@@ -19,35 +19,70 @@
         <div class="globe globe-3"></div>
     </div>
 
-    <main class="container">
-        <header class="hero-section">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="nav-logo">LearnFast</div>
+            <div class="nav-links">
+                <button class="nav-btn active" data-view="home">Home</button>
+                <button class="nav-btn" data-view="explore">Explore</button>
+            </div>
             <div class="lang-switcher">
                 <button class="lang-btn active" data-lang="en">EN</button>
                 <button class="lang-btn" data-lang="am">AM</button>
                 <button class="lang-btn" data-lang="ru">RU</button>
             </div>
-            <h1 class="logo">Learn<span class="highlight">Fast</span></h1>
-            <p class="tagline" data-i18n="tagline">Learn anything, faster and easier.</p>
-        </header>
+        </div>
+    </nav>
 
-        <section class="search-box-container glass-card">
-            <h2 data-i18n="searchTitle">What do you want to learn? (e.g. English, Java)</h2>
-            <form id="learning-form" novalidate>
-                <div class="input-group large-input">
-                    <input type="text" id="topic" data-i18n-placeholder="placeholder"
-                        placeholder="Type a topic or language..." autocomplete="off">
-                    <button type="submit" class="cta-button">
-                        <i class="fa-solid fa-search"></i>
-                        <span data-i18n="btnSearch">Search</span>
-                    </button>
+    <div class="container">
+        <!-- Home View (Search) -->
+        <div id="home-view" class="view-section">
+            <header class="hero-section">
+                <h1 class="logo">Learn<span class="highlight">Fast</span></h1>
+                <p class="tagline" data-i18n="tagline">Learn anything, faster and easier.</p>
+            </header>
+
+            <main class="glass-card">
+                <div class="search-box-container">
+                    <h2 data-i18n="searchTitle">What do you want to learn?</h2>
+                    <form id="learning-form">
+                        <div class="input-group large-input">
+                            <i class="fas fa-search icon"></i>
+                            <input type="text" id="topic" data-i18n-placeholder="placeholder"
+                                placeholder="Type a topic..." autocomplete="off">
+                            <button type="submit" class="cta-button">
+                                <i class="fas fa-magic"></i> <span data-i18n="btnSearch">Search</span>
+                            </button>
+                        </div>
+                    </form>
                 </div>
-            </form>
-        </section>
+            </main>
 
-        <section id="results-section" class="results-grid hidden">
-            <!-- Results will be injected here dynamically -->
-        </section>
-    </main>
+            <section id="results-section" class="results-grid hidden">
+                <!-- Results injected here -->
+            </section>
+        </div>
+
+        <!-- Explore View (Preset Content) -->
+        <div id="explore-view" class="view-section hidden">
+            <header class="hero-section">
+                <h1 class="logo">Explore<span class="highlight">Now</span></h1>
+                <p class="tagline">Curated paths for your journey.</p>
+
+                <!-- Category Filters -->
+                <div class="filter-container">
+                    <button class="filter-btn active" data-category="all">All</button>
+                    <button class="filter-btn" data-category="Game">Games 🎮</button>
+                    <button class="filter-btn" data-category="Fact">Facts 💡</button>
+                    <button class="filter-btn" data-category="Video">Videos 🎥</button>
+                </div>
+            </header>
+            <section id="explore-grid" class="results-grid">
+                <!-- Preset content injected here -->
+            </section>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
