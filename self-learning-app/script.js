@@ -16,7 +16,7 @@ const TRANSLATIONS = {
         // Profile
         profileHeader: "Welcome, Learner!",
         profileSub: "Please sign in to personalize your journey.",
-        placeholderName: "Enter your name",
+        placeholderName: "Enter your nickname",
         btnConfirm: "Confirm",
         dashboardHeader: "Your Preferences",
         btnSignOut: "Sign Out",
@@ -63,7 +63,7 @@ const TRANSLATIONS = {
         // Profile
         profileHeader: "Բարի գալուստ, Սովորող",
         profileSub: "Մուտք գործեք՝ ձեր ուսուցումը անհատականացնելու համար:",
-        placeholderName: "Մուտքագրեք ձեր անունը",
+        placeholderName: "Գրեք ձեր նիկնեյմը",
         btnConfirm: "Հաստատել",
         dashboardHeader: "Ձեր Նախասիրությունները",
         btnSignOut: "Դուրս Գալ",
@@ -110,7 +110,7 @@ const TRANSLATIONS = {
         // Profile
         profileHeader: "Добро пожаловать!",
         profileSub: "Войдите, чтобы персонализировать обучение.",
-        placeholderName: "Введите ваше имя",
+        placeholderName: "Введите ваш никнейм",
         btnConfirm: "Подтвердить",
         dashboardHeader: "Ваши предпочтения",
         btnSignOut: "Выйти",
