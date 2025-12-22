@@ -27,11 +27,22 @@ export default async function handler(request) {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                contents: [{ parts: [{ text: prompt }] }]
+                contents: [{ parts: [{ text: prompt }] }],
+                tools: [{ googleSearch: {} }]
             })
         });
 
         const data = await geminiResponse.json();
+
+        // Log Grounding Metadata to verify Search usage
+        if (data.candidates && data.candidates[0]) {
+            const metadata = data.candidates[0].groundingMetadata;
+            console.log("🔍 Google Search Used:", metadata ? "YES" : "NO");
+            if (metadata) {
+                console.log("Grounding Metadata:", JSON.stringify(metadata, null, 2));
+            }
+        }
+
         return new Response(JSON.stringify(data), {
             status: 200,
             headers: { 'Content-Type': 'application/json' }

@@ -107,6 +107,7 @@ const TRANSLATIONS = {
         cardVideo: "Видеоурок",
         cardWiki: "Википедия",
         cardSearch: "Google Поиск",
+        btnLoadMore: "Ещё",
         // Profile
         profileHeader: "Добро пожаловать!",
         profileSub: "Войдите, чтобы персонализировать обучение.",
@@ -146,6 +147,8 @@ const TRANSLATIONS = {
 };
 
 let currentLang = 'en';
+let displayedUrls = new Set();
+let currentSearchTerm = "";
 
 // Language Switcher Logic
 document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -183,10 +186,16 @@ document.getElementById('learning-form').addEventListener('submit', async functi
 
     const inputVal = document.getElementById('topic').value.trim();
     const resultsContainer = document.getElementById('results-section');
-    const submitBtn = document.querySelector('.cta-button');
+    const loadMoreContainer = document.getElementById('load-more-container'); // Get container
+    const submitBtn = document.querySelector('#learning-form .cta-button'); // Specific button
     const t = TRANSLATIONS[currentLang];
 
     if (!inputVal) return;
+
+    // Reset State
+    currentSearchTerm = inputVal;
+    displayedUrls.clear();
+    loadMoreContainer.classList.add('hidden'); // Hide until loaded
 
     // UI Loading State
     resultsContainer.classList.remove('hidden');
@@ -196,13 +205,35 @@ document.getElementById('learning-form').addEventListener('submit', async functi
 
     try {
         const resources = await fetchAIResources(inputVal);
-        renderResults(resources, inputVal);
+        renderResults(resources, inputVal, true); // true = reset container
+        loadMoreContainer.classList.remove('hidden'); // Show button on success
     } catch (error) {
         console.error('AI Error:', error);
         renderFallback(inputVal);
+        loadMoreContainer.classList.add('hidden'); // Ensure hidden on error
     } finally {
         submitBtn.disabled = false;
         submitBtn.style.opacity = '1';
+    }
+});
+
+// Load More Listener
+document.getElementById('btn-load-more').addEventListener('click', async () => {
+    const btn = document.getElementById('btn-load-more');
+    const originalText = btn.textContent;
+    btn.textContent = "...";
+    btn.disabled = true;
+
+    try {
+        // Fetch MORE resources. We use the same function but relies on random/filtering
+        const resources = await fetchAIResources(currentSearchTerm);
+        renderResults(resources, currentSearchTerm, false); // false = append
+    } catch (error) {
+        console.error("Load more error", error);
+    } finally {
+        const t = TRANSLATIONS[currentLang];
+        btn.textContent = t.btnLoadMore;
+        btn.disabled = false;
     }
 });
 
@@ -214,7 +245,7 @@ async function fetchAIResources(topic) {
     You are a helpful learning assistant. The user wants to learn about: "${topic}".
     Provide a list of 5-6 HIGH QUALITY, specific online resources to learn this topic.
     The response title and description MUST BE IN ${targetLang} language.
-    Include a mix of: Video Channels (YouTube), Official Documentation/Websites, Interactive Courses, and Articles.
+    Include a mix of: Specific YouTube Video Tutorials (not channels), Official Documentation/Websites, Interactive Courses, and Articles.
     
     Return ONLY valid JSON in this format:
     [
@@ -248,20 +279,37 @@ async function fetchAIResources(topic) {
     return JSON.parse(cleanJson);
 }
 
-function renderResults(data, topic) {
+
+function renderResults(data, topic, isNewSearch = true) {
     const resultsContainer = document.getElementById('results-section');
-    resultsContainer.innerHTML = '';
+
+    if (isNewSearch) {
+        resultsContainer.innerHTML = '';
+    }
 
     if (!data || data.length === 0) {
-        renderFallback(topic);
+        if (isNewSearch) renderFallback(topic);
         return;
     }
 
     let delay = 0;
+    let addedCount = 0;
+
     data.forEach(item => {
+        // Simple duplicate check by URL or Title
+        const identifier = item.url || item.title;
+        if (displayedUrls.has(identifier)) return;
+
+        displayedUrls.add(identifier);
         createCard(item, resultsContainer, delay);
         delay += 0.1;
+        addedCount++;
     });
+
+    if (addedCount === 0 && !isNewSearch) {
+        // If nothing added on load more, maybe notify or just do nothing
+        console.log("No new unique items found.");
+    }
 }
 
 function renderFallback(topic) {
