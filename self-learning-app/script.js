@@ -12,7 +12,42 @@ const TRANSLATIONS = {
         fallbackDesc: "But here are some smart links for",
         cardVideo: "Video Tutorial",
         cardWiki: "Wikipedia",
-        cardSearch: "Google Search"
+        cardSearch: "Google Search",
+        // Profile
+        profileHeader: "Welcome, Learner!",
+        profileSub: "Please sign in to personalize your journey.",
+        placeholderName: "Enter your name",
+        btnConfirm: "Confirm",
+        dashboardHeader: "Your Preferences",
+        btnSignOut: "Sign Out",
+        q_interests: "What are you most interested in?",
+        q_style: "How do you prefer to learn?",
+        q_pace: "Your preferred learning pace?",
+        q_level: "What is your current skill level?",
+        q_time: "How much time do you have daily?",
+        q_reminders: "Do you want daily reminders?",
+        // Quiz Options
+        opt_tech: "Technology 💻",
+        opt_science: "Science 🧬",
+        opt_arts: "Arts 🎨",
+        opt_history: "History 🏛️",
+        opt_languages: "Languages 🗣️",
+        opt_everything: "Everything 🌍",
+        opt_videos: "Watching Videos 🎥",
+        opt_games: "Playing Games 🎮",
+        opt_reading: "Reading Facts 📚",
+        opt_coding: "Interactive Coding ⌨️",
+        opt_fast: "Fast & Intense 🚀",
+        opt_slow: "Slow & Deep 🐢",
+        opt_casual: "Just Casual ☕",
+        opt_beginner: "Beginner 🌱",
+        opt_intermediate: "Intermediate 🌿",
+        opt_advanced: "Advanced 🌳",
+        opt_5m: "5 Minutes ⏱️",
+        opt_15m: "15-30 Minutes ⏳",
+        opt_1h: "1 Hour+ 🕰️",
+        opt_yes: "Yes ✅",
+        opt_no: "No ❌"
     },
     am: {
         tagline: "Սովորիր ամեն ինչ, ավելի արագ ու հեշտ։",
@@ -24,7 +59,42 @@ const TRANSLATIONS = {
         fallbackDesc: "Բայց ահա որոշ օգտակար հղումներ",
         cardVideo: "Վիդեո Դասեր",
         cardWiki: "Վիքիպեդիա",
-        cardSearch: "Google Որոնում"
+        cardSearch: "Google Որոնում",
+        // Profile
+        profileHeader: "Բարի գալուստ, Սովորող",
+        profileSub: "Մուտք գործեք՝ ձեր ուսուցումը անհատականացնելու համար:",
+        placeholderName: "Մուտքագրեք ձեր անունը",
+        btnConfirm: "Հաստատել",
+        dashboardHeader: "Ձեր Նախասիրությունները",
+        btnSignOut: "Դուրս Գալ",
+        q_interests: "Ինչո՞վ եք ամենաշատը հետաքրքրված:",
+        q_style: "Ինչպե՞ս եք նախընտրում սովորել:",
+        q_pace: "Ուսուցման ո՞ր տեմպն եք նախընտրում:",
+        q_level: "Ո՞րն է ձեր ներկայիս հմտության մակարդակը:",
+        q_time: "Օրական որքա՞ն ժամանակ ունեք:",
+        q_reminders: "Ցանկանու՞մ եք ստանալ ամենօրյա հիշեցումներ:",
+        // Quiz Options
+        opt_tech: "Տեխնոլոգիա 💻",
+        opt_science: "Գիտություն 🧬",
+        opt_arts: "Արվեստ 🎨",
+        opt_history: "Պատմություն 🏛️",
+        opt_languages: "Լեզուներ 🗣️",
+        opt_everything: "Ամեն Ինչ 🌍",
+        opt_videos: "Դիտել Վիդեոներ 🎥",
+        opt_games: "Խաղալ Խաղեր 🎮",
+        opt_reading: "Կարդալ Փաստեր 📚",
+        opt_coding: "Ինտերակտիվ Կոդավորում ⌨️",
+        opt_fast: "Արագ և Ինտենսիվ 🚀",
+        opt_slow: "Դանդաղ և Խորը 🐢",
+        opt_casual: "Պարզապես Սիրողական ☕",
+        opt_beginner: "Սկսնակ 🌱",
+        opt_intermediate: "Միջին 🌿",
+        opt_advanced: "Առաջադեմ 🌳",
+        opt_5m: "5 Րոպե ⏱️",
+        opt_15m: "15-30 Րոպե ⏳",
+        opt_1h: "1 Ժամ+ 🕰️",
+        opt_yes: "Այո ✅",
+        opt_no: "Ոչ ❌"
     },
     ru: {
         tagline: "Изучай всё, что угодно, быстрее и проще.",
@@ -36,7 +106,42 @@ const TRANSLATIONS = {
         fallbackDesc: "Но вот полезные ссылки для",
         cardVideo: "Видеоурок",
         cardWiki: "Википедия",
-        cardSearch: "Google Поиск"
+        cardSearch: "Google Поиск",
+        // Profile
+        profileHeader: "Добро пожаловать!",
+        profileSub: "Войдите, чтобы персонализировать обучение.",
+        placeholderName: "Введите ваше имя",
+        btnConfirm: "Подтвердить",
+        dashboardHeader: "Ваши предпочтения",
+        btnSignOut: "Выйти",
+        q_interests: "Что вас больше всего интересует?",
+        q_style: "Как вы предпочитаете учиться?",
+        q_pace: "Какой темп обучения вы предпочитаете?",
+        q_level: "Какой ваш текущий уровень навыков?",
+        q_time: "Сколько времени у вас есть в день?",
+        q_reminders: "Хотите получать ежедневные напоминания?",
+        // Quiz Options
+        opt_tech: "Технологии 💻",
+        opt_science: "Наука 🧬",
+        opt_arts: "Искусство 🎨",
+        opt_history: "История 🏛️",
+        opt_languages: "Языки 🗣️",
+        opt_everything: "Всё 🌍",
+        opt_videos: "Смотреть Видео 🎥",
+        opt_games: "Играть в Игры 🎮",
+        opt_reading: "Читать Факты 📚",
+        opt_coding: "Интерактивный Кодинг ⌨️",
+        opt_fast: "Быстро и Интенсивно 🚀",
+        opt_slow: "Медленно и Глубоко 🐢",
+        opt_casual: "Просто для Души ☕",
+        opt_beginner: "Новичок 🌱",
+        opt_intermediate: "Средний 🌿",
+        opt_advanced: "Продвинутый 🌳",
+        opt_5m: "5 Минут ⏱️",
+        opt_15m: "15-30 Минут ⏳",
+        opt_1h: "1 Час+ 🕰️",
+        opt_yes: "Да ✅",
+        opt_no: "Нет ❌"
     }
 };
 
@@ -305,18 +410,175 @@ document.querySelectorAll('.nav-btn').forEach(btn => {
         document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
-        // Toggle Views
+
+        // Toggle Views : UPDATE with Profile
         if (view === 'home') {
             document.getElementById('home-view').classList.remove('hidden');
             document.getElementById('search-view').classList.add('hidden');
+            document.getElementById('profile-view').classList.add('hidden');
             renderHomePage();
-        } else {
-            // Search View
+        } else if (view === 'search') {
             document.getElementById('home-view').classList.add('hidden');
             document.getElementById('search-view').classList.remove('hidden');
+            document.getElementById('profile-view').classList.add('hidden');
+        } else if (view === 'profile') {
+            document.getElementById('home-view').classList.add('hidden');
+            document.getElementById('search-view').classList.add('hidden');
+            document.getElementById('profile-view').classList.remove('hidden');
+            initProfileView();
         }
     });
 });
+
+/* --- User Profile & Quiz Logic --- */
+let userProfile = JSON.parse(localStorage.getItem('learnfast_user')) || null;
+let quizCurrentIndex = 0;
+let quizAnswers = {};
+
+const QUIZ_QUESTIONS = [
+    {
+        id: 'interests',
+        textKey: 'q_interests',
+        options: ['opt_tech', 'opt_science', 'opt_arts', 'opt_history', 'opt_languages', 'opt_everything']
+    },
+    {
+        id: 'style',
+        textKey: 'q_style',
+        options: ['opt_videos', 'opt_games', 'opt_reading', 'opt_coding']
+    },
+    {
+        id: 'pace',
+        textKey: 'q_pace',
+        options: ['opt_fast', 'opt_slow', 'opt_casual']
+    },
+    {
+        id: 'level',
+        textKey: 'q_level',
+        options: ['opt_beginner', 'opt_intermediate', 'opt_advanced']
+    },
+    {
+        id: 'time',
+        textKey: 'q_time',
+        options: ['opt_5m', 'opt_15m', 'opt_1h']
+    },
+    {
+        id: 'reminders',
+        textKey: 'q_reminders',
+        options: ['opt_yes', 'opt_no']
+    }
+];
+
+function initProfileView() {
+    const signinContainer = document.getElementById('signin-container');
+    const quizContainer = document.getElementById('quiz-container');
+    const profileDashboard = document.getElementById('profile-dashboard');
+
+    // Force language update to ensure static texts are correct
+    setLanguage(currentLang);
+
+    if (!userProfile) {
+        signinContainer.classList.remove('hidden');
+        quizContainer.classList.add('hidden');
+        profileDashboard.classList.add('hidden');
+    } else if (!userProfile.onboardingComplete) {
+        signinContainer.classList.add('hidden');
+        quizContainer.classList.remove('hidden');
+        profileDashboard.classList.add('hidden');
+        startQuiz();
+    } else {
+        signinContainer.classList.add('hidden');
+        quizContainer.classList.add('hidden');
+        profileDashboard.classList.remove('hidden');
+        renderProfileDashboard();
+    }
+}
+
+// Sign In Form
+document.getElementById('signin-form')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('username-input').value.trim();
+    if (name) {
+        userProfile = { name: name, onboardingComplete: false, preferences: {} };
+        localStorage.setItem('learnfast_user', JSON.stringify(userProfile));
+        initProfileView();
+    }
+});
+
+// Quiz Logic
+function startQuiz() {
+    quizCurrentIndex = 0;
+    quizAnswers = {};
+    renderQuestion();
+}
+
+function renderQuestion() {
+    const q = QUIZ_QUESTIONS[quizCurrentIndex];
+    const t = TRANSLATIONS[currentLang];
+
+    // Use translated text
+    document.getElementById('quiz-question').textContent = t[q.textKey] || q.textKey;
+
+    // Progress
+    const progress = ((quizCurrentIndex) / QUIZ_QUESTIONS.length) * 100;
+    document.getElementById('quiz-progress').style.width = `${progress}%`;
+
+    const optionsContainer = document.getElementById('quiz-options');
+    optionsContainer.innerHTML = '';
+
+    q.options.forEach(optKey => {
+        const btn = document.createElement('button');
+        btn.className = 'quiz-option-btn';
+        btn.textContent = t[optKey] || optKey;
+        btn.onclick = () => handleAnswer(q.id, t[optKey] || optKey);
+        optionsContainer.appendChild(btn);
+    });
+}
+
+function handleAnswer(questionId, answer) {
+    quizAnswers[questionId] = answer;
+    quizCurrentIndex++;
+
+    if (quizCurrentIndex < QUIZ_QUESTIONS.length) {
+        renderQuestion();
+    } else {
+        completeQuiz();
+    }
+}
+
+function completeQuiz() {
+    userProfile.preferences = quizAnswers;
+    userProfile.onboardingComplete = true;
+    localStorage.setItem('learnfast_user', JSON.stringify(userProfile));
+    initProfileView();
+}
+
+// Dashboard
+function renderProfileDashboard() {
+    document.getElementById('profile-name').textContent = userProfile.name;
+    const prefList = document.getElementById('preferences-list');
+    prefList.innerHTML = '';
+
+    // Refresh static localized texts
+    setLanguage(currentLang);
+
+    // Map keys to readable labels if needed, or just iterate values
+    Object.entries(userProfile.preferences).forEach(([key, value]) => {
+        const li = document.createElement('li');
+        // Translate key if possible, e.g. "interests" -> "Interests"
+        // For simple display, Capitalizing first letter is okay
+        li.innerHTML = `<strong>${key.charAt(0).toUpperCase() + key.slice(1)}:</strong> ${value}`;
+        prefList.appendChild(li);
+    });
+
+    // Logout
+    document.getElementById('logout-btn').onclick = () => {
+        localStorage.removeItem('learnfast_user');
+        userProfile = null;
+        // Optionally clear inputs
+        document.getElementById('username-input').value = '';
+        initProfileView();
+    };
+}
 
 // Initial Render
 renderHomePage();
@@ -360,7 +622,7 @@ const HOME_DATA = [
                 desc: "The element of truth - science and engineering videos.",
                 url: "https://www.youtube.com/watch?v=Gj8Lerh9s2k"
             },
-             {
+            {
                 type: "Video",
                 title: "TED-Ed",
                 desc: "Lessons worth sharing from great educators.",
@@ -371,7 +633,7 @@ const HOME_DATA = [
     {
         category: "Facts 💡",
         items: [
-             {
+            {
                 type: "Fact",
                 title: "Did you know?",
                 desc: "Honey never spoils. Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still perfectly edible.",
@@ -383,7 +645,7 @@ const HOME_DATA = [
                 desc: "One day on Venus is longer than one year on Venus. It takes Venus longer to rotate once on its axis than to orbit the Sun.",
                 url: ""
             },
-             {
+            {
                 type: "Fact",
                 title: "Bio Fact",
                 desc: "Octopuses have three hearts, nine brains, and blue blood.",
@@ -399,7 +661,7 @@ function renderHomePage() {
     if (container.innerHTML.trim() !== "") return;
 
     let delay = 0;
-    
+
     HOME_DATA.forEach(section => {
         // Section Title
         const sectionTitle = document.createElement('h2');

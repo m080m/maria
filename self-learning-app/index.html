@@ -26,6 +26,7 @@
             <div class="nav-links">
                 <button class="nav-btn active" data-view="home">Home</button>
                 <button class="nav-btn" data-view="search">Search</button>
+                <button class="nav-btn" data-view="profile">Profile</button>
             </div>
             <div class="lang-switcher">
                 <button class="lang-btn active" data-lang="en">EN</button>
@@ -73,6 +74,54 @@
             <section id="results-section" class="results-grid hidden">
                 <!-- Results injected here -->
             </section>
+        </div>
+
+        <!-- Profile View -->
+        <div id="profile-view" class="view-section hidden">
+            <!-- State 1: Sign In -->
+            <div id="signin-container" class="glass-card full-center">
+                <h2 data-i18n="profileHeader">Welcome, Learner!</h2>
+                <p data-i18n="profileSub">Please sign in to personalize your journey.</p>
+                <form id="signin-form">
+                    <div class="input-group large-input">
+                        <input type="text" id="username-input" data-i18n-placeholder="placeholderName"
+                            placeholder="Enter your name" required autocomplete="off">
+                        <button type="submit" class="cta-button" data-i18n="btnConfirm">Confirm</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- State 2: Quiz -->
+            <div id="quiz-container" class="glass-card hidden">
+                <div class="quiz-header">
+                    <h2 id="quiz-question">Question 1</h2>
+                    <div class="progress-bar">
+                        <div id="quiz-progress"></div>
+                    </div>
+                </div>
+                <div id="quiz-options" class="quiz-options-grid">
+                    <!-- Options injected here -->
+                </div>
+            </div>
+
+            <!-- State 3: Dashboard -->
+            <div id="profile-dashboard" class="glass-card hidden">
+                <div class="profile-header">
+                    <div class="avatar"><i class="fas fa-user-astronaut"></i></div>
+                    <div>
+                        <h2 id="profile-name">User Name</h2>
+                        <p class="profile-level">Level 1 Learner</p>
+                    </div>
+                </div>
+                <hr style="border-color: rgba(255,255,255,0.1); margin: 1rem 0;">
+                <div class="profile-stats">
+                    <h3 data-i18n="dashboardHeader">Your Preferences</h3>
+                    <ul id="preferences-list">
+                        <!-- Preferences injected here -->
+                    </ul>
+                </div>
+                <button id="logout-btn" class="cta-button secondary" data-i18n="btnSignOut">Sign Out</button>
+            </div>
         </div>
     </div>
 
