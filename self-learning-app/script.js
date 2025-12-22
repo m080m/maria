@@ -206,14 +206,6 @@ function getSiteInfo(url) {
     if (lowerUrl.includes('w3schools.com') || lowerUrl.includes('mozilla.org')) {
         return { icon: 'fa-solid fa-code', siteType: 'Documentation', className: 'site-docs' };
     }
-    // Games
-    if (lowerUrl.includes('flexboxfroggy') || lowerUrl.includes('geoguessr') || lowerUrl.includes('codecombat') || lowerUrl.includes('quickdraw')) {
-        return { icon: 'fa-solid fa-gamepad', siteType: 'Game', className: 'site-default' };
-    }
-    // Facts (often Wiki)
-    if (lowerUrl.includes('wikipedia.org')) {
-        return { icon: 'fa-brands fa-wikipedia-w', siteType: 'Fact Source', className: 'site-wiki' };
-    }
 
     // Default return
     return { icon: 'fa-solid fa-globe', siteType: 'Website', className: 'site-default' };
@@ -302,7 +294,7 @@ function generateSmartLinks(topic) {
     ];
 }
 
-/* --- Navigation & Explore Logic --- */
+/* --- Navigation & Home/Search Logic --- */
 
 // Navigation Switching
 document.querySelectorAll('.nav-btn').forEach(btn => {
@@ -316,125 +308,112 @@ document.querySelectorAll('.nav-btn').forEach(btn => {
         // Toggle Views
         if (view === 'home') {
             document.getElementById('home-view').classList.remove('hidden');
-            document.getElementById('explore-view').classList.add('hidden');
+            document.getElementById('search-view').classList.add('hidden');
+            renderHomePage();
         } else {
+            // Search View
             document.getElementById('home-view').classList.add('hidden');
-            document.getElementById('explore-view').classList.remove('hidden');
-            renderExplorePage();
+            document.getElementById('search-view').classList.remove('hidden');
         }
     });
 });
 
-const EXPLORE_DATA = [
-    // --- GAMES ---
-    {
-        type: "Game",
-        title: "Flexbox Froggy",
-        desc: "Learn CSS Layouts by helping frogs reach their lilypads!",
-        url: "https://flexboxfroggy.com/"
-    },
-    {
-        type: "Game",
-        title: "GeoGuessr",
-        desc: "Explore the world and guess where you are dropped.",
-        url: "https://www.geoguessr.com/"
-    },
-    {
-        type: "Game",
-        title: "CodeCombat",
-        desc: "Learn programming by playing a real RPG game.",
-        url: "https://codecombat.com/"
-    },
-    {
-        type: "Game",
-        title: "Quick, Draw!",
-        desc: "Can a neural network recognize your drawing?",
-        url: "https://quickdraw.withgoogle.com/"
-    },
+// Initial Render
+renderHomePage();
 
-    // --- FACTS ---
+const HOME_DATA = [
     {
-        type: "Fact",
-        title: "Honey Never Spoils",
-        desc: "Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still edible.",
-        url: "https://en.wikipedia.org/wiki/Honey#Preservation"
+        category: "Games 🎮",
+        items: [
+            {
+                type: "Game",
+                title: "CodeCombat",
+                desc: "Learn to code by playing a real game.",
+                url: "https://codecombat.com/"
+            },
+            {
+                type: "Game",
+                title: "GeoGuessr",
+                desc: "Explore the world and test your geography skills.",
+                url: "https://www.geoguessr.com/"
+            },
+            {
+                type: "Game",
+                title: "Quick, Draw!",
+                desc: "Can a neural network recognize your drawing?",
+                url: "https://quickdraw.withgoogle.com/"
+            }
+        ]
     },
     {
-        type: "Fact",
-        title: "Octopuses Have 3 Hearts",
-        desc: "Two hearts pump blood to the gills, while a third circulates it to the rest of the body.",
-        url: "https://en.wikipedia.org/wiki/Octopus#Anatomy_and_physiology"
+        category: "Videos 🎥",
+        items: [
+            {
+                type: "Video",
+                title: "Kurzgesagt – In a Nutshell",
+                desc: "Beautiful animated science videos.",
+                url: "https://www.youtube.com/watch?v=sNhhvQGsMEc"
+            },
+            {
+                type: "Video",
+                title: "Veritasium",
+                desc: "The element of truth - science and engineering videos.",
+                url: "https://www.youtube.com/watch?v=Gj8Lerh9s2k"
+            },
+             {
+                type: "Video",
+                title: "TED-Ed",
+                desc: "Lessons worth sharing from great educators.",
+                url: "https://www.youtube.com/watch?v=P_6vDLq64gE"
+            }
+        ]
     },
     {
-        type: "Fact",
-        title: "Space is Silent",
-        desc: "Since there is no atmosphere in space, sound waves have no medium to travel through.",
-        url: "https://www.nasa.gov/audience/forstudents/5-8/features/nasa-knows/what-is-sound-58.html"
-    },
-
-    // --- VIDEOS ---
-    {
-        type: "Video",
-        title: "The Scale of the Universe",
-        desc: "Mind-blowing visualization of the size of things.",
-        url: "https://www.youtube.com/watch?v=i93Z7zljQ7I"
-    },
-    {
-        type: "Video",
-        title: "Do You Have Free Will?",
-        desc: "Philosophy and science collision by Veritasium.",
-        url: "https://www.youtube.com/watch?v=KIKCn74d9Dg"
-    },
-    {
-        type: "Video Series",
-        title: "Crash Course Computer Science",
-        desc: "An amazing animated series about how computers work.",
-        url: "https://www.youtube.com/watch?v=O5nskjZ_GoI&list=PL8dPuuaLjXtNlUrcyK6XZDmeOGIYJwdi2"
+        category: "Facts 💡",
+        items: [
+             {
+                type: "Fact",
+                title: "Did you know?",
+                desc: "Honey never spoils. Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still perfectly edible.",
+                url: ""
+            },
+            {
+                type: "Fact",
+                title: "Space Fact",
+                desc: "One day on Venus is longer than one year on Venus. It takes Venus longer to rotate once on its axis than to orbit the Sun.",
+                url: ""
+            },
+             {
+                type: "Fact",
+                title: "Bio Fact",
+                desc: "Octopuses have three hearts, nine brains, and blue blood.",
+                url: ""
+            }
+        ]
     }
 ];
 
-// Helper to determine icon for new types
-function getExploreIcon(type) {
-    if (type === 'Game') return 'fa-solid fa-gamepad';
-    if (type === 'Fact') return 'fa-solid fa-lightbulb';
-    if (type === 'Video' || type === 'Video Series') return 'fa-brands fa-youtube';
-    return 'fa-solid fa-star';
-}
-
-function renderExplorePage(category = 'all') {
-    const container = document.getElementById('explore-grid');
-    container.innerHTML = ''; // Clear current content
+function renderHomePage() {
+    const container = document.getElementById('home-grid');
+    // Only render if empty to avoid duplicates
+    if (container.innerHTML.trim() !== "") return;
 
     let delay = 0;
-    EXPLORE_DATA.forEach(item => {
-        // Filter Logic
-        if (category !== 'all' && item.type !== category) return;
+    
+    HOME_DATA.forEach(section => {
+        // Section Title
+        const sectionTitle = document.createElement('h2');
+        sectionTitle.className = 'section-title';
+        sectionTitle.textContent = section.category;
+        sectionTitle.style.gridColumn = "1 / -1"; // Span full width
+        sectionTitle.style.marginTop = "2rem";
+        sectionTitle.style.color = "var(--accent-color)";
+        sectionTitle.style.animation = `fadeIn ${0.5 + delay}s ease forwards`;
+        container.appendChild(sectionTitle);
 
-        // Custom createCard logic for explore items to handle special icons if needed
-        // Or reuse existing createCard but maybe inject custom icon class?
-        // Let's rely on createCard but assume we might need to patch the icon if getSiteInfo doesn't catch it
-        // Simpler: Just re-use createCard. getSiteInfo checks URL. 
-        // For "Fact" or "Game" without specific URL patterns, we might want manual overrides.
-        // Let's modify createCard slightly or just rely on URL. 
-        // Actually, let's just use createCard. It works well enough.
-        // But to make "Games" look like Games, we might need a small hack or update getSiteInfo? 
-        // Let's just update the item object passed to createCard to force an icon class if we want.
-
-        // For now, standard render.
-        createCard(item, container, delay);
-        delay += 0.1;
+        section.items.forEach(item => {
+            createCard(item, container, delay);
+            delay += 0.05;
+        });
     });
 }
-
-// Filter Event Listeners
-document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Active State
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        // Filter
-        const category = btn.getAttribute('data-category');
-        renderExplorePage(category);
-    });
-});

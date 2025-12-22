@@ -31,7 +31,11 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    /* Helper to center content if needed, though container has margin auto */
+    justify-content: flex-start;
+    /* Changed from center to top align */
     position: relative;
 }
 
@@ -246,40 +250,6 @@ body {
 .tagline {
     font-size: 1.2rem;
     opacity: 0.8;
-}
-
-/* Filter Buttons */
-.filter-container {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.filter-btn {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: white;
-    padding: 8px 20px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-family: var(--font-main);
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.filter-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
-}
-
-.filter-btn.active {
-    background: var(--accent-color);
-    color: #000;
-    font-weight: 700;
-    box-shadow: 0 0 10px var(--accent-glow);
-    border-color: var(--accent-color);
 }
 
 /* Glass Card Form */

@@ -25,7 +25,7 @@
             <div class="nav-logo">LearnFast</div>
             <div class="nav-links">
                 <button class="nav-btn active" data-view="home">Home</button>
-                <button class="nav-btn" data-view="explore">Explore</button>
+                <button class="nav-btn" data-view="search">Search</button>
             </div>
             <div class="lang-switcher">
                 <button class="lang-btn active" data-lang="en">EN</button>
@@ -36,8 +36,19 @@
     </nav>
 
     <div class="container">
-        <!-- Home View (Search) -->
+        <!-- Home View (Content Dashboard) -->
         <div id="home-view" class="view-section">
+            <header class="hero-section">
+                <h1 class="logo">Discover<span class="highlight">More</span></h1>
+                <p class="tagline">Games, Videos, and Facts regarding knowledge.</p>
+            </header>
+            <section id="home-grid" class="results-grid">
+                <!-- Preset content injected here -->
+            </section>
+        </div>
+
+        <!-- Search View (AI Tool) -->
+        <div id="search-view" class="view-section hidden">
             <header class="hero-section">
                 <h1 class="logo">Learn<span class="highlight">Fast</span></h1>
                 <p class="tagline" data-i18n="tagline">Learn anything, faster and easier.</p>
@@ -61,25 +72,6 @@
 
             <section id="results-section" class="results-grid hidden">
                 <!-- Results injected here -->
-            </section>
-        </div>
-
-        <!-- Explore View (Preset Content) -->
-        <div id="explore-view" class="view-section hidden">
-            <header class="hero-section">
-                <h1 class="logo">Explore<span class="highlight">Now</span></h1>
-                <p class="tagline">Curated paths for your journey.</p>
-
-                <!-- Category Filters -->
-                <div class="filter-container">
-                    <button class="filter-btn active" data-category="all">All</button>
-                    <button class="filter-btn" data-category="Game">Games 🎮</button>
-                    <button class="filter-btn" data-category="Fact">Facts 💡</button>
-                    <button class="filter-btn" data-category="Video">Videos 🎥</button>
-                </div>
-            </header>
-            <section id="explore-grid" class="results-grid">
-                <!-- Preset content injected here -->
             </section>
         </div>
     </div>
